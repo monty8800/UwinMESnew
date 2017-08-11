@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/butterknife-annotations-8.4.0_97c94a78cbe723befac968479d936de93d173465/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/3b04191f69d6c5bbd8fa29469e6174d793b18c60/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_57c8a80563f05d203bffa7c62c70a5e8c35a036a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/retrofit-2.1.0_95fcecd86e59277db9b0cbf58722ecabaccba6ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/09d13e80911d6dce0666ba9f5825adf71ea77b5d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_006c016eaa7b3526816ceb9b9a4ea4162bb9ce10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/d02d2b8f3ec173d22f90d3b28d8ad55f1d1b244a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_25fbdc13e2eccba5f0ecc91f583e380c13a696d5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/jsr305-2.0.1_bb1bb98816f75c596ec3e5926dce1e4ad4284ab8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.haha/haha/2.0.3/640a438d2d415c056ca6a673ac26b183b044e160/haha-2.0.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="640a438d2d415c056ca6a673ac26b183b044e160">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/haha-2.0.3_0121e9fa9df8860628787df262b226a243abe158/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/38d2d81767669d236028fab1ebd90a73eac409e3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_b1f8921f1172a5078d835d2c4bbfe7d71b82d94f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/converter-gson-2.1.0_4216b3b62060ec8d01e998516e3e70a15035955a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/f58928064c5b65d6e127c031dbc6ec2bbd845964/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_d41dc5704a6d3ff70368a1b1069373a9715f7439.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-analyzer/1.5/3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f/leakcanary-analyzer-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/leakcanary-analyzer-1.5_9ef882e82e498d2c7e1a6a451aee1263580da666.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.android/build-cache/f552f898c173f31085826dd66160baef35061455/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2a156b99fc7cc034308f942906b09d32754a4470">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/classes_6977c6b727eaeef45a519f0b7147a442093d360f/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/37f54359ea024bd11695cd786019db180e6ed590/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c7a2672b3122b897a0751f327929ae405ea02bf7">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_4c550d2736f9a9ec3541bbd4bfae855e1af80be2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/9b2140d7d0f788e0ea8b973d6ecab172b2a4b9d1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_3249af7f8390087487798ef752e356c4a2bc7f90.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/ece1139372d135051da7a62c7c0bd532a7825a18/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_3ffd9f60118b3bb58fe3d38abf18e60cb1a254c7.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/commons-cli-1.2_e9c4b24b3610682861fda9b6f82c83c7dc4ce0b9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/incremental-classes/ruike/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="34cd97043a6acd85f8dedbbe9f8e037b0147b1eb">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10000/instant-run-bootstrap_b9500118877cc402c5c6f195566ee7747f2e2e51/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.android/build-cache/983c7309ab00e8f12c0fdd6bcb7c56bd7dcc382f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="26b6f0185cbba8917ba9d9d0bd170f95311622ab">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/classes_5b7042299cc92248956188703ff5abedadf72fa0/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/b7fd67ebb8222884203582a18907a7b25632f08a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_d8ebb17b2a81a64a11218e0bb5c6f08dd8125557.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-watcher/1.5/288101b16513158c2923ad3fb6161d1452b65e73/leakcanary-watcher-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="288101b16513158c2923ad3fb6161d1452b65e73">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/leakcanary-watcher-1.5_b47835b98f42187549ce89a99ea0c33f14741c8b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/4133cc58f00bd65816eaeb82df4489f7d405dddc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_aa0047c9f0e7dba58a6d9c340d8a4e2ce9ee62eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/872ad09d411c785840a4d0704c8dc686f1846902/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_7c94372de7fab4cd5ebe602bf6db69e1d461a0dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/gson-2.7_53ede67ded5449503209990c6a560d90a88cd668.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/butterknife-annotations-8.4.0_97c94a78cbe723befac968479d936de93d173465.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/okhttp-3.3.0_4e218ae600967f925164abffb0ebdaf7861ee801.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/converter-gson-2.1.0_4216b3b62060ec8d01e998516e3e70a15035955a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.android/build-cache/3b04191f69d6c5bbd8fa29469e6174d793b18c60/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/classes_57c8a80563f05d203bffa7c62c70a5e8c35a036a/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/constraint-layout-solver-1.0.2_1b493adbc07ea11d303b3e5e6c52bc4c63623923.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/retrofit-2.1.0_95fcecd86e59277db9b0cbf58722ecabaccba6ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/572be9986589da342e945c8f6dbf569ffedc1f8b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_76d8279940c643e9bd0ebd84720d12d079992eb5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/0ab3ec7181ab44b79d30a948d8f69d72d8fbd344/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_c06206ad749136370d410a0482e7312d5c4b2479.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/incremental-runtime-classes/ruike/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10000/instant-run_2a75c666a192fee527a226db4013fc41f88026ee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/okio-1.8.0_558339ca9d369f9889edb6a141d1c3b42512e1a3/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/159b822df7009af27f755aa1da74c9e5dd98caa9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_ce65d9ceeee7d92a4b3b837954e589f7af7250e8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-analyzer/1.5/3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f/leakcanary-analyzer-1.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/leakcanary-analyzer-1.5_9ef882e82e498d2c7e1a6a451aee1263580da666/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/support-annotations-25.3.1_60c4328c0ddd495a5a3e7266a7a0e93020eb3aaa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/commons-cli-1.2_e9c4b24b3610682861fda9b6f82c83c7dc4ce0b9.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.android/build-cache/78a45f46daa7ac99498219e5dddb39396c10983b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="21257e8fb439affef2a89c23ddfda45869ac0c31">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/classes_c3a1fadfec63811945cfccdbc883cadc50bd08ee/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/78a45f46daa7ac99498219e5dddb39396c10983b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="21257e8fb439affef2a89c23ddfda45869ac0c31">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_c3a1fadfec63811945cfccdbc883cadc50bd08ee.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/8884a4ade3f7640a10641dcf569c2629d3be3825/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_c4515482046c192c8dec0995802d90f6a04ebfa3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/f552f898c173f31085826dd66160baef35061455/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2a156b99fc7cc034308f942906b09d32754a4470">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_6977c6b727eaeef45a519f0b7147a442093d360f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/okio-1.8.0_558339ca9d369f9889edb6a141d1c3b42512e1a3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-watcher/1.5/288101b16513158c2923ad3fb6161d1452b65e73/leakcanary-watcher-1.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="288101b16513158c2923ad3fb6161d1452b65e73">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/leakcanary-watcher-1.5_b47835b98f42187549ce89a99ea0c33f14741c8b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/jsr305-2.0.1_bb1bb98816f75c596ec3e5926dce1e4ad4284ab8/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.android/build-cache/983c7309ab00e8f12c0fdd6bcb7c56bd7dcc382f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="26b6f0185cbba8917ba9d9d0bd170f95311622ab">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/classes_5b7042299cc92248956188703ff5abedadf72fa0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.haha/haha/2.0.3/640a438d2d415c056ca6a673ac26b183b044e160/haha-2.0.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="640a438d2d415c056ca6a673ac26b183b044e160">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/pre-dexed/ruike/debug/haha-2.0.3_0121e9fa9df8860628787df262b226a243abe158.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.android/build-cache/37f54359ea024bd11695cd786019db180e6ed590/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c7a2672b3122b897a0751f327929ae405ea02bf7">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/classes_4c550d2736f9a9ec3541bbd4bfae855e1af80be2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/monty/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="/Users/monty/Documents/rlzz/MyApplication/app/build/intermediates/transforms/dex/ruike/debug/folders/1000/10/okhttp-3.3.0_4e218ae600967f925164abffb0ebdaf7861ee801/classes.dex" />
+    </item>
+
+</items>
