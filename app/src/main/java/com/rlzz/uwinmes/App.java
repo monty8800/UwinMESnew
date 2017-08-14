@@ -3,7 +3,7 @@ package com.rlzz.uwinmes;
 import android.app.Application;
 
 import com.facebook.stetho.Stetho;
-import com.rlzz.uwinmes.utils.LogHelper;
+import com.rlzz.uwinmes.utils.LogUtil;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.Bugly;
 
@@ -31,13 +31,13 @@ public class App extends Application {
         Bugly.init(getApplicationContext(), BUGLY_APP_ID, BuildConfig.DEBUG);
 
         if (BuildConfig.DEBUG) {
-            LogHelper.debugInit();
+            LogUtil.debugInit();
             //使用chrome调试网络和数据库
             Stetho.initializeWithDefaults(this);
             //内存泄漏检测
             LeakCanary.install(this);
         } else {
-            LogHelper.releaseInit();
+            LogUtil.releaseInit();
         }
 
     }

@@ -8,7 +8,7 @@ import com.orhanobut.logger.Printer;
  * Created by monty on 2017/8/11.
  */
 
-public class LogHelper {
+public class LogUtil {
 
     public static void debugInit() {
         Logger.init("debug").logLevel(LogLevel.FULL);

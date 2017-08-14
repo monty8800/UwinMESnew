@@ -1,6 +1,5 @@
 package com.rlzz.uwinmes.common.base;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,7 @@ import android.widget.FrameLayout;
 
 import com.rlzz.uwinmes.R;
 import com.rlzz.uwinmes.common.base.viewinterface.IUI;
-import com.rlzz.uwinmes.utils.LogHelper;
+import com.rlzz.uwinmes.utils.LogUtil;
 import com.rlzz.uwinmes.utils.ToolBarUtil;
 
 import butterknife.BindView;
@@ -47,7 +46,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogHelper.d("onCreate");
+        LogUtil.d("onCreate");
         initBeforeView();
         setContentView(R.layout.activity_base);
         ButterKnife.bind(this);
@@ -57,7 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
     }
 
     private void setupView() {
-        LogHelper.d("setupView");
+        LogUtil.d("setupView");
         setupToolbar();
         int contentLayoutId = getContentLayoutId();
         View view = LayoutInflater.from(this).inflate(contentLayoutId, null, false);
@@ -68,15 +67,15 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
      * 初始化Toolbar
      */
     private void setupToolbar() {
-        ToolBarUtil.setToolBarTitle(toolbar,"标题");
+        ToolBarUtil.setToolBarTitle(toolbar, "标题");
         ToolBarUtil.setToolbarNavigation(toolbar, R.mipmap.ic_launcher, 0, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        ToolBarUtil.hideToolbarNavigation(toolbar);
-        LogHelper.d("setupToolbar");
+
+        LogUtil.d("setupToolbar");
         setSupportActionBar(toolbar);
     }
 
@@ -92,17 +91,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
 
     @Override
     public void onBackPressed() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            finishAfterTransition();
-        }
         super.onBackPressed();
     }
 
     @Override
     protected void onDestroy() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            finishAfterTransition();
-        }
         super.onDestroy();
     }
 }
