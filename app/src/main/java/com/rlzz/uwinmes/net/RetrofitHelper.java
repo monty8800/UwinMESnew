@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -35,6 +36,7 @@ public class RetrofitHelper {
                 .client(client)
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
@@ -54,15 +56,15 @@ public class RetrofitHelper {
      * 获取Service对象，如果已经创建过直接取出，否则新建一个，并缓存起来
      *
      * @param service
-     * @param <T>
+     * @param <S>
      * @return
      */
-    public synchronized <T> T getService(final Class<T> service) {
+    public synchronized <S> S getService(final Class<S> service) {
         String serviceName = service.getName();
         if (null != serviceByType.get(serviceName)) {
-            return (T) serviceByType.get(serviceName);
+            return (S) serviceByType.get(serviceName);
         }
-        T ser = retrofit.create(service);
+        S ser = retrofit.create(service);
         serviceByType.put(serviceName, ser);
         return ser;
     }

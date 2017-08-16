@@ -5,4 +5,7 @@ package com.rlzz.uwinmes.common;
  */
 
 public class Constants {
+    public static String KEY_KEEPPASSWORD = "keepPassword";
+    public static String KEY_ACCOUNT = "account";
+    public static String KEY_PASSWORD = "password";
 }

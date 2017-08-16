@@ -14,7 +14,6 @@ import retrofit2.Response;
  * 请求回调
  * Created by monty on 2017/7/18.
  */
-
 public abstract class RequestCallBack<T extends ResponseModel> implements Callback<T> {
     @Override
     public void onResponse(Call<T> call, Response<T> response) {
@@ -50,10 +49,24 @@ public abstract class RequestCallBack<T extends ResponseModel> implements Callba
         finish();
     }
 
+    /**
+     * 请求成功回调
+     *
+     * @param response 请求体
+     * @param n        转换后的结果
+     */
     public abstract void onSuccess(Response<T> response, T n);
 
+    /**
+     * 请求失败回调
+     *
+     * @param message 失败消息
+     */
     public abstract void onFailure(String message);
 
+    /**
+     * 完成请求
+     */
     public void finish() {
     }
 

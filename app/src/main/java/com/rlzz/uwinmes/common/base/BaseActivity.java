@@ -1,12 +1,13 @@
 package com.rlzz.uwinmes.common.base;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 
 import com.rlzz.uwinmes.R;
 import com.rlzz.uwinmes.common.base.viewinterface.IUI;
@@ -26,10 +27,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.container)
-    FrameLayout container;
-
-    public abstract int getContentLayoutId();
 
     @Override
     public void initBeforeView() {
@@ -49,18 +46,19 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
         LogUtil.d("onCreate");
         initBeforeView();
         setContentView(R.layout.activity_base);
+        setupView((ViewGroup) findViewById(R.id.container));
         ButterKnife.bind(this);
-        setupView();
+        setupToolbar();
         initView();
         initData();
     }
 
-    private void setupView() {
+    private void setupView(ViewGroup containerView) {
         LogUtil.d("setupView");
-        setupToolbar();
+
         int contentLayoutId = getContentLayoutId();
         View view = LayoutInflater.from(this).inflate(contentLayoutId, null, false);
-        container.addView(view);
+        containerView.addView(view);
     }
 
     /**
@@ -89,13 +87,27 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
         return true;
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    public ProgressDialog progressDialog;
+
+    public ProgressDialog showProgressDialog() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("加载中");
+        progressDialog.show();
+        return progressDialog;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public ProgressDialog showProgressDialog(CharSequence message) {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(message);
+        progressDialog.show();
+        return progressDialog;
     }
+
+    public void dismissProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            // progressDialog.hide();会导致android.mvpView.WindowLeaked
+            progressDialog.dismiss();
+        }
+    }
+
 }

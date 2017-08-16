@@ -47,7 +47,7 @@ public class ToolBarUtil {
         titleView.setText(title);
     }
     /**
-     * 设置隐藏Toolbar
+     * 设置隐藏Toolbar左边按钮
      *
      * @param toolbar
      */

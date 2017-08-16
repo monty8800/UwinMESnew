@@ -5,6 +5,8 @@ package com.rlzz.uwinmes.common.base.viewinterface;
  */
 
 public interface IUI {
+    int getContentLayoutId();
+
     void initBeforeView();
 
     void initView();
