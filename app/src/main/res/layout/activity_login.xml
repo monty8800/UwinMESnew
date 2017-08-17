@@ -131,7 +131,7 @@
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/darkblue_circularbead_bg"
+            android:background="@drawable/darkblue_circularbead_selector"
             android:text="登      录"
             android:textColor="@color/white" />
     </LinearLayout>

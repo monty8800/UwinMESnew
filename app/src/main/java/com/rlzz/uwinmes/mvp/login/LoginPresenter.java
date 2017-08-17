@@ -8,6 +8,8 @@ import com.rlzz.uwinmes.net.RetrofitHelper;
 import com.rlzz.uwinmes.utils.LogUtil;
 import com.rlzz.uwinmes.utils.PreferencesManager;
 
+import java.util.List;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -32,14 +34,21 @@ public class LoginPresenter extends Presenter<ILoginView> {
      * @param keepPassword 是否记住密码
      */
     public void login(final String account, final String password, final boolean keepPassword) {
-        PreferencesManager.putBoolean(Constants.KEY_KEEPPASSWORD, keepPassword);
+        PreferencesManager.getInstanceDefault().putBoolean(Constants.KEY_KEEPPASSWORD, keepPassword);
+        if (keepPassword) {
+            PreferencesManager.getInstanceUser().putString(Constants.KEY_ACCOUNT, account);
+            PreferencesManager.getInstanceUser().putString(Constants.KEY_PASSWORD, password);
+        }else{
+            PreferencesManager.getInstanceUser().putString(Constants.KEY_ACCOUNT,"");
+            PreferencesManager.getInstanceUser().putString(Constants.KEY_PASSWORD,"");
+        }
         mvpView.showLoadingDialog("正在登录");
 //        RetrofitHelper.getInstance().getService(API.class).login(account, password)
         RetrofitHelper.getInstance().getService(API.class).getAndroidData()
-                .map(new Function<ResponseModel2<String>, Boolean>() {
+                .map(new Function<ResponseModel2<List<String>>, Boolean>() {
                     @Override
-                    public Boolean apply(ResponseModel2<String> stringResponseModel) throws Exception {
-                        LogUtil.d(stringResponseModel.results);
+                    public Boolean apply(ResponseModel2<List<String>> stringResponseModel) throws Exception {
+                        LogUtil.d(stringResponseModel.results.toString());
                         return true;
                     }
                 })
@@ -55,10 +64,8 @@ public class LoginPresenter extends Presenter<ILoginView> {
                     public void onNext(Boolean value) {
                         if (value) LogUtil.d("登录成功");
                         else LogUtil.d("登录失败");
-                        if (keepPassword) {
-                            PreferencesManager.putString(Constants.KEY_ACCOUNT, account);
-                            PreferencesManager.putString(Constants.KEY_PASSWORD, password);
-                        }
+
+                        mvpView.onLoginSuccess();
                     }
 
                     @Override

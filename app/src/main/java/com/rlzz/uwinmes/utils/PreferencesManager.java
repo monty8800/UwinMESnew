@@ -10,12 +10,37 @@ import com.rlzz.uwinmes.App;
  */
 public class PreferencesManager {
 
-    public static final String PREFERENCE_NAME = "Preferences_File";
+    public static final String PREFERENCES_DEFAULT = "Preferences_Default";
+    public static final String PREFERENCE_USER = "Preferences_User";
+
 
     private static SharedPreferences settings =
-            App.getInstance().getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
+            App.getInstance().getSharedPreferences(PREFERENCES_DEFAULT, Context.MODE_PRIVATE);
 
     private PreferencesManager() {
+    }
+
+    private static PreferencesManager instance;
+
+    private static PreferencesManager getInstances() {
+        if (instance == null) {
+            synchronized (PreferencesManager.class) {
+                if (instance == null) {
+                    instance = new PreferencesManager();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static PreferencesManager getInstanceDefault() {
+        settings = App.getInstance().getSharedPreferences(PREFERENCES_DEFAULT, Context.MODE_PRIVATE);
+        return getInstances();
+    }
+
+    public static PreferencesManager getInstanceUser() {
+        settings = App.getInstance().getSharedPreferences(PREFERENCE_USER, Context.MODE_PRIVATE);
+        return getInstances();
     }
 
     /**
@@ -26,7 +51,7 @@ public class PreferencesManager {
      * @return True if the new values were successfully written to persistent
      * storage.
      */
-    public static boolean putString(String key, String value) {
+    public boolean putString(String key, String value) {
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(key, value);
         editor.apply();
@@ -42,7 +67,7 @@ public class PreferencesManager {
      * is not a string
      * @see #getString(String, String)
      */
-    public static String getString(String key) {
+    public String getString(String key) {
         return getString(key, null);
     }
 
@@ -55,7 +80,7 @@ public class PreferencesManager {
      * ClassCastException if there is a preference with this name that
      * is not a string
      */
-    public static String getString(String key, String defaultValue) {
+    public String getString(String key, String defaultValue) {
         return settings.getString(key, defaultValue);
     }
 
@@ -67,7 +92,7 @@ public class PreferencesManager {
      * @return True if the new values were successfully written to persistent
      * storage.
      */
-    public static boolean putInt(String key, int value) {
+    public boolean putInt(String key, int value) {
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt(key, value);
         editor.apply();
@@ -83,7 +108,7 @@ public class PreferencesManager {
      * is not a int
      * @see #getInt(String, int)
      */
-    public static int getInt(String key) {
+    public int getInt(String key) {
         return getInt(key, -1);
     }
 
@@ -96,7 +121,7 @@ public class PreferencesManager {
      * ClassCastException if there is a preference with this name that
      * is not a int
      */
-    public static int getInt(String key, int defaultValue) {
+    public int getInt(String key, int defaultValue) {
         return settings.getInt(key, defaultValue);
     }
 
@@ -108,7 +133,7 @@ public class PreferencesManager {
      * @return True if the new values were successfully written to persistent
      * storage.
      */
-    public static boolean putLong(String key, long value) {
+    public boolean putLong(String key, long value) {
         SharedPreferences.Editor editor = settings.edit();
         editor.putLong(key, value);
         editor.apply();
@@ -124,7 +149,7 @@ public class PreferencesManager {
      * is not a long
      * @see #getLong(String, long)
      */
-    public static long getLong(String key) {
+    public long getLong(String key) {
         return getLong(key, -1);
     }
 
@@ -137,7 +162,7 @@ public class PreferencesManager {
      * ClassCastException if there is a preference with this name that
      * is not a long
      */
-    public static long getLong(String key, long defaultValue) {
+    public long getLong(String key, long defaultValue) {
         return settings.getLong(key, defaultValue);
     }
 
@@ -149,7 +174,7 @@ public class PreferencesManager {
      * @return True if the new values were successfully written to persistent
      * storage.
      */
-    public static boolean putFloat(String key, float value) {
+    public boolean putFloat(String key, float value) {
         SharedPreferences.Editor editor = settings.edit();
         editor.putFloat(key, value);
         editor.apply();
@@ -165,7 +190,7 @@ public class PreferencesManager {
      * is not a float
      * @see #getFloat(String, float)
      */
-    public static float getFloat(String key) {
+    public float getFloat(String key) {
         return getFloat(key, -1);
     }
 
@@ -178,7 +203,7 @@ public class PreferencesManager {
      * ClassCastException if there is a preference with this name that
      * is not a float
      */
-    public static float getFloat(String key, float defaultValue) {
+    public float getFloat(String key, float defaultValue) {
         return settings.getFloat(key, defaultValue);
     }
 
@@ -190,14 +215,14 @@ public class PreferencesManager {
      * @return True if the new attr.xml were successfully written to persistent
      * storage.
      */
-    public static boolean putBoolean(String key, boolean value) {
+    public boolean putBoolean(String key, boolean value) {
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(key, value);
         editor.apply();
         return true;
     }
 
-    public static void putBooleanApply(String key, boolean value) {
+    public void putBooleanApply(String key, boolean value) {
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(key, value);
         editor.apply();
@@ -212,7 +237,7 @@ public class PreferencesManager {
      * is not a boolean
      * @see #getBoolean(String, boolean)
      */
-    public static boolean getBoolean(String key) {
+    public boolean getBoolean(String key) {
         return getBoolean(key, false);
     }
 
@@ -225,7 +250,7 @@ public class PreferencesManager {
      * ClassCastException if there is a preference with this name that
      * is not a boolean
      */
-    public static boolean getBoolean(String key, boolean defaultValue) {
+    public boolean getBoolean(String key, boolean defaultValue) {
         return settings.getBoolean(key, defaultValue);
     }
 }

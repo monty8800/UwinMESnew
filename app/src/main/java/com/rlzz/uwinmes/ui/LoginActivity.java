@@ -79,11 +79,14 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
 
     @Override
     public void initData() {
-        boolean check = PreferencesManager.getBoolean(Constants.KEY_KEEPPASSWORD);
+        // 先申请权限
+
+
+        boolean check = PreferencesManager.getInstanceDefault().getBoolean(Constants.KEY_KEEPPASSWORD);
         cbKeepPassword.setChecked(check);
         if(check){
-            String account = PreferencesManager.getString(Constants.KEY_ACCOUNT);
-            String password = PreferencesManager.getString(Constants.KEY_PASSWORD);
+            String account = PreferencesManager.getInstanceUser().getString(Constants.KEY_ACCOUNT);
+            String password = PreferencesManager.getInstanceUser().getString(Constants.KEY_PASSWORD);
 
             etAccount.setText(account);
             etPassword.setText(password);
@@ -160,6 +163,7 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
     @Override
     public void onLoginSuccess() {
         ToastUtil.show("登录成功");
+        MainActivity.GoToActivity(this);
     }
 
     @Override
@@ -189,7 +193,7 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
 
     @OnCheckedChanged(R.id.cb_keepPassword)
     public void onKeepPasswordCheckedChanged(boolean checked) {
-        PreferencesManager.putBoolean(Constants.KEY_KEEPPASSWORD, checked);
+        PreferencesManager.getInstanceDefault().putBoolean(Constants.KEY_KEEPPASSWORD, checked);
     }
 
     @OnClick(R.id.btn_login)

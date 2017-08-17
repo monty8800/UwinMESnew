@@ -32,13 +32,12 @@ public class App extends Application {
 
         if (BuildConfig.DEBUG) {
             LogUtil.debugInit();
-            //使用chrome调试网络和数据库
+            //使用chrome调试网络和数据库  chrome://inspect/#devices
             Stetho.initializeWithDefaults(this);
             //内存泄漏检测
             LeakCanary.install(this);
         } else {
             LogUtil.releaseInit();
         }
-
     }
 }

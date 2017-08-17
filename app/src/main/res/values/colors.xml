@@ -37,6 +37,7 @@
     <color name="red900">#b71c1c</color>
 
     <color name="darkblue">#3a3e55</color>
+    <color name="darkblue_50">#b33a3e55</color>
     <!--<color name="darkblue">#313441</color>-->
     <color name="brownness">#bb4520</color>
     <color name="blue">#4f59b8</color>
