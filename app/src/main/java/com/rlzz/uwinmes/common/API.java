@@ -2,6 +2,7 @@ package com.rlzz.uwinmes.common;
 
 
 import com.rlzz.uwinmes.net.ResponseModel;
+import com.rlzz.uwinmes.net.ResponseModel2;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -23,6 +24,9 @@ public interface API {
     @GET("history/content/day/{date}")
 //    Call<String> getContentFromDay(@Path("date") String date);
     Observable<ResponseModel<String>> getContentFromDay(@Path("date") String date);
+
+    @GET("data/Android/10/1")
+    Observable<ResponseModel2<String>> getAndroidData();
 
     @FormUrlEncoded
     @POST("login")

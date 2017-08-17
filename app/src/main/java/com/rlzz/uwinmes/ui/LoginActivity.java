@@ -81,6 +81,13 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
     public void initData() {
         boolean check = PreferencesManager.getBoolean(Constants.KEY_KEEPPASSWORD);
         cbKeepPassword.setChecked(check);
+        if(check){
+            String account = PreferencesManager.getString(Constants.KEY_ACCOUNT);
+            String password = PreferencesManager.getString(Constants.KEY_PASSWORD);
+
+            etAccount.setText(account);
+            etPassword.setText(password);
+        }
     }
 
     private void initClearButton() {
@@ -187,7 +194,7 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
 
     @OnClick(R.id.btn_login)
     public void onbtnLoginClicked() {
-        presenter.login("", "", cbKeepPassword.isChecked());
+        presenter.login(etAccount.getText().toString(), etPassword.getText().toString(), cbKeepPassword.isChecked());
     }
 
     @Override

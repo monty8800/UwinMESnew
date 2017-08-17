@@ -3,7 +3,7 @@ package com.rlzz.uwinmes.mvp.login;
 import com.rlzz.uwinmes.common.API;
 import com.rlzz.uwinmes.common.Constants;
 import com.rlzz.uwinmes.common.base.presenter.Presenter;
-import com.rlzz.uwinmes.net.ResponseModel;
+import com.rlzz.uwinmes.net.ResponseModel2;
 import com.rlzz.uwinmes.net.RetrofitHelper;
 import com.rlzz.uwinmes.utils.LogUtil;
 import com.rlzz.uwinmes.utils.PreferencesManager;
@@ -35,11 +35,11 @@ public class LoginPresenter extends Presenter<ILoginView> {
         PreferencesManager.putBoolean(Constants.KEY_KEEPPASSWORD, keepPassword);
         mvpView.showLoadingDialog("正在登录");
 //        RetrofitHelper.getInstance().getService(API.class).login(account, password)
-        RetrofitHelper.getInstance().getService(API.class).getContentFromDay("2017/08/02")
-                .map(new Function<ResponseModel<String>, Boolean>() {
+        RetrofitHelper.getInstance().getService(API.class).getAndroidData()
+                .map(new Function<ResponseModel2<String>, Boolean>() {
                     @Override
-                    public Boolean apply(ResponseModel<String> stringResponseModel) throws Exception {
-                        LogUtil.d(stringResponseModel.data);
+                    public Boolean apply(ResponseModel2<String> stringResponseModel) throws Exception {
+                        LogUtil.d(stringResponseModel.results);
                         return true;
                     }
                 })
