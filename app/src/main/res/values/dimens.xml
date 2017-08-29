@@ -26,6 +26,9 @@
 
     <dimen name="recycler_item_header">10dp</dimen>
     <dimen name="recycler_item_space">8dp</dimen>
+    <dimen name="dim5dp">5dp</dimen>
+    <dimen name="dim10dp">10dp</dimen>
+    <dimen name="dim50dp">50dp</dimen>
 
 
 </resources>

@@ -45,4 +45,8 @@ public class LogUtil {
     public static void e(Throwable throwable, String log, Object... args) {
         Logger.e(throwable, log, args);
     }
+
+    public static void json(String json) {
+        Logger.json(json);
+    }
 }

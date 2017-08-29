@@ -22,6 +22,10 @@ public class FileUtil {
         return context.getExternalCacheDir();
     }
 
+    public static String getExternalCacheDirAbsolutePath(Context context) {
+        return getExternalCacheDir(context).getAbsolutePath();
+    }
+
     public static String assetFile2String(String fileName, Context context) {
         String Result = "";
         InputStreamReader inputReader = null;

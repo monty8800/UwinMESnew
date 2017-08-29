@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blue"
+    android:orientation="vertical"
+    android:padding="@dimen/dim10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="来料待检任务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_large_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_round_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dim5dp"
+            android:paddingRight="@dimen/dim5dp">
+
+            <TextView
+                android:id="@+id/tv_startTime"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="2017.08.19" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dim5dp"
+                android:layout_marginRight="@dimen/dim5dp"
+                android:gravity="center"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tv_endTime"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="2017.08.19" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_invoiceNo"
+            style="@style/ConditionEditText"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dim10dp"
+            android:hint="到货单号"
+            android:nextFocusDown="@+id/shengchan" />
+
+        <EditText
+            android:id="@+id/et_productionNo"
+            style="@style/ConditionEditText"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dim10dp"
+            android:hint="生产订单"
+            android:nextFocusDown="@+id/wuliao" />
+
+        <EditText
+            android:id="@+id/et_material"
+            style="@style/ConditionEditText"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dim10dp"
+            android:hint="物料"
+            android:nextFocusDown="@+id/jianyanyuan" />
+
+        <EditText
+            android:id="@+id/et_operator"
+            style="@style/ConditionEditText"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dim10dp"
+            android:hint="检验员" />
+
+        <Spinner
+            android:id="@+id/sp_testStatus"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dim10dp"
+            android:background="@drawable/search_round_bg"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/dim10dp"
+            android:background="@drawable/orange_round_bg"
+            android:text="查询"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

@@ -56,8 +56,6 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        LogUtil.d("LogingActivity onCreate");
     }
 
     @Override
@@ -71,17 +69,13 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
                 //第二个参数是圆角半径，第三个是模糊程度，3-5之间个人感觉比较好。
                 .bitmapTransform(new BlurTransformation(this, 25, 3))
                 .into(ivBackground);
-
         initClearButton();
         setEditTextListener();
-
     }
 
     @Override
     public void initData() {
         // 先申请权限
-
-
         boolean check = PreferencesManager.getInstanceDefault().getBoolean(Constants.KEY_KEEPPASSWORD);
         cbKeepPassword.setChecked(check);
         if(check){
@@ -163,12 +157,13 @@ public class LoginActivity extends MVPActivity<LoginPresenter> implements ILogin
     @Override
     public void onLoginSuccess() {
         ToastUtil.show("登录成功");
+        finish();
         MainActivity.GoToActivity(this);
     }
 
     @Override
-    public void onLoginFailure() {
-        ToastUtil.show("登录失败");
+    public void onLoginFailure(String errorMsg) {
+        ToastUtil.show(errorMsg);
     }
 
     @OnClick(R.id.btn_clearAccount)

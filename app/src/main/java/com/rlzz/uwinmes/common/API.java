@@ -1,6 +1,7 @@
 package com.rlzz.uwinmes.common;
 
 
+import com.rlzz.uwinmes.entity.Test;
 import com.rlzz.uwinmes.net.ResponseModel;
 import com.rlzz.uwinmes.net.ResponseModel2;
 
@@ -14,6 +15,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
+ *
  * Created by monty on 2017/8/10.
  */
 
@@ -28,7 +30,7 @@ public interface API {
     Observable<ResponseModel<String>> getContentFromDay(@Path("date") String date);
 
     @GET("data/Android/10/1")
-    Observable<ResponseModel2<List<String>>> getAndroidData();
+    Observable<ResponseModel2<List<Test>>> getAndroidData();
 
     @FormUrlEncoded
     @POST("login")

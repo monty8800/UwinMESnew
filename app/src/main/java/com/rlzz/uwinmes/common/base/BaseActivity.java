@@ -77,7 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
         setSupportActionBar(toolbar);
     }
 
-    public Toolbar getToolbar() {
+    protected Toolbar getToolbar() {
         return toolbar;
     }
 
@@ -87,7 +87,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
         return true;
     }
 
-    public ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     public ProgressDialog showProgressDialog() {
         progressDialog = new ProgressDialog(this);
@@ -96,14 +96,15 @@ public abstract class BaseActivity extends AppCompatActivity implements IUI {
         return progressDialog;
     }
 
-    public ProgressDialog showProgressDialog(CharSequence message) {
+    protected ProgressDialog showProgressDialog(CharSequence message) {
         progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
         progressDialog.setMessage(message);
         progressDialog.show();
         return progressDialog;
     }
 
-    public void dismissProgressDialog() {
+    protected void dismissProgressDialog() {
         if (progressDialog != null && progressDialog.isShowing()) {
             // progressDialog.hide();会导致android.mvpView.WindowLeaked
             progressDialog.dismiss();

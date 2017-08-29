@@ -14,7 +14,7 @@ public class PreferencesManager {
     public static final String PREFERENCE_USER = "Preferences_User";
 
 
-    private static SharedPreferences settings =
+    protected static SharedPreferences settings =
             App.getInstance().getSharedPreferences(PREFERENCES_DEFAULT, Context.MODE_PRIVATE);
 
     private PreferencesManager() {

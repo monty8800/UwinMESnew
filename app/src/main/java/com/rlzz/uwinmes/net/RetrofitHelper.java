@@ -2,15 +2,19 @@ package com.rlzz.uwinmes.net;
 
 import android.util.ArrayMap;
 
+import com.rlzz.uwinmes.utils.JsonUtil;
+import com.rlzz.uwinmes.utils.LogUtil;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by kelin on 2017/6/9.
+ * Created by monty on 2017/8/14.
  * RetrofitHelper
  */
 
@@ -25,12 +29,16 @@ public class RetrofitHelper {
     }
 
     private void initRetrofit() {
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.connectTimeout(30, TimeUnit.SECONDS);
-        builder.readTimeout(20, TimeUnit.SECONDS);
-        builder.writeTimeout(20, TimeUnit.SECONDS);
-        builder.retryOnConnectionFailure(true);
-        OkHttpClient client = builder.build();
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLogger());
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
+                .addNetworkInterceptor(loggingInterceptor)
+                .build();
 
         retrofit = new Retrofit.Builder()
                 .client(client)
@@ -49,6 +57,27 @@ public class RetrofitHelper {
             }
         }
         return instance;
+    }
+    private class HttpLogger implements HttpLoggingInterceptor.Logger {
+        private StringBuilder mMessage = new StringBuilder();
+
+        @Override
+        public void log(String message) {
+            // 请求或者响应开始
+            if (message.startsWith("--> POST")) {
+                mMessage.setLength(0);
+            }
+            // 以{}或者[]形式的说明是响应结果的json数据，需要进行格式化
+            if ((message.startsWith("{") && message.endsWith("}"))
+                    || (message.startsWith("[") && message.endsWith("]"))) {
+                message = JsonUtil.formatJson(JsonUtil.decodeUnicode(message));
+            }
+            mMessage.append(message.concat("\n"));
+            // 响应结束，打印整条日志
+            if (message.startsWith("<-- END HTTP")) {
+                LogUtil.d(mMessage.toString());
+            }
+        }
     }
 
 

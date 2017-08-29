@@ -39,19 +39,6 @@ public class NetWork {
 
         public int value;
     }
-    //
-    //public enum NetSubType {
-    //    None(1),
-    //    Mobile(2),
-    //    Wifi(4),
-    //    Other(8);
-    //
-    //    NetType(int value) {
-    //        this.value = value;
-    //    }
-    //
-    //    public int value;
-    //}
 
     /**
      * 获取ConnectivityManager
@@ -94,6 +81,12 @@ public class NetWork {
         return false;
     }
 
+    /**
+     * 获取已连接的网络类型
+     *
+     * @param context
+     * @return
+     */
     public static NetWork.NetType getConnectedType(Context context) {
         NetworkInfo net = getConnectivityManager(context).getActiveNetworkInfo();
         if (net != null) {
@@ -248,7 +241,7 @@ public class NetWork {
      * EHRPD   3G CDMA2000向LTE 4G的中间产物 Evolved High Rate Packet Data HRPD的升级
      * HSPAP   3G HSPAP 比 HSDPA 快些
      *
-     * @return {@link  Network.NetWorkType}
+     * @return {@link  @Network.NetWorkType}
      */
     public static NetWork.NetWorkType getNetworkType(Context context) {
         int type = getConnectedTypeINT(context);

@@ -9,5 +9,5 @@ import com.rlzz.uwinmes.common.base.viewinterface.ILoadingDialog;
 
 public interface ILoginView extends ILoadingDialog{
     void onLoginSuccess();
-    void onLoginFailure();
+    void onLoginFailure(String errorMsg);
 }

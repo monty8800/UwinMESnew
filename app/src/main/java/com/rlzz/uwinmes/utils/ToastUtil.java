@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.rlzz.uwinmes.App;
 
 /**
- * 注释
  * Created by monty on 2017/8/16.
  */
 
