@@ -4,6 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.rlzz.uwinmes.ui.TestTaskActivity">
-    <include layout="@layout/activity_test_task_header"/>
+
+    <include layout="@layout/activity_test_task_header" />
+
+    <com.rlzz.uwinmes.widget.PanelListLayout
+        android:id="@+id/panelList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

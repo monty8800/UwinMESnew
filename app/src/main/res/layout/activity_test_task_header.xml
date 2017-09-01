@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/blue"
+    android:background="@color/darkblue"
     android:orientation="vertical"
     android:padding="@dimen/dim10dp">
 
@@ -31,6 +31,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/search_round_bg"
             android:gravity="center_vertical"
+            android:focusable="true"
             android:paddingLeft="@dimen/dim5dp"
             android:paddingRight="@dimen/dim5dp">
 
@@ -65,6 +66,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dim10dp"
             android:hint="到货单号"
+
             android:nextFocusDown="@+id/shengchan" />
 
         <EditText
@@ -91,6 +93,7 @@
             android:layout_width="90dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dim10dp"
+            android:imeOptions="flagNoExtractUi|actionDone"
             android:hint="检验员" />
 
         <Spinner

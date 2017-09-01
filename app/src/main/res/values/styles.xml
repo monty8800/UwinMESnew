@@ -50,7 +50,7 @@
     <style name="ConditionEditText">
         <item name="android:background">@drawable/search_round_bg</item>
         <item name="android:inputType">text</item>
-        <item name="android:imeOptions">flagNoExtractUi</item> <!--设置键盘弹出时不遮盖全屏-->
+        <item name="android:imeOptions">flagNoExtractUi|actionNext</item> <!--设置键盘弹出时不遮盖全屏-->
         <item name="android:paddingLeft">@dimen/dim5dp</item>
         <item name="android:paddingRight">@dimen/dim5dp</item>
         <item name="android:maxLines">1</item>

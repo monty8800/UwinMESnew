@@ -44,7 +44,7 @@ public class DatePickerDialog extends AlertDialog implements DialogInterface.OnC
     /**
      * Creates a new date picker dialog for the current date.
      *
-     * @param context the parent context
+     * @param context    the parent context
      * @param themeResId the resource ID of the theme against which to inflate
      *                   this dialog, or {@code 0} to use the parent
      *                   {@code context}'s default alert dialog theme
@@ -57,11 +57,11 @@ public class DatePickerDialog extends AlertDialog implements DialogInterface.OnC
      * Creates a new date picker dialog for the specified date using the parent
      * context's default date picker dialog theme.
      *
-     * @param context the parent context
-     * @param listener the listener to call when the user sets the date
-     * @param year the initially selected year
-     * @param month the initially selected month (0-11 for compatibility with
-     *              {@link Calendar#MONTH})
+     * @param context    the parent context
+     * @param listener   the listener to call when the user sets the date
+     * @param year       the initially selected year
+     * @param month      the initially selected month (0-11 for compatibility with
+     *                   {@link Calendar#MONTH})
      * @param dayOfMonth the initially selected day of month (1-31, depending
      *                   on month)
      */
@@ -73,16 +73,16 @@ public class DatePickerDialog extends AlertDialog implements DialogInterface.OnC
     /**
      * Creates a new date picker dialog for the specified date.
      *
-     * @param context the parent context
-     * @param themeResId the resource ID of the theme against which to inflate
-     *                   this dialog, or {@code 0} to use the parent
-     *                   {@code context}'s default alert dialog theme
-     * @param listener the listener to call when the user sets the date
-     * @param year the initially selected year
+     * @param context     the parent context
+     * @param themeResId  the resource ID of the theme against which to inflate
+     *                    this dialog, or {@code 0} to use the parent
+     *                    {@code context}'s default alert dialog theme
+     * @param listener    the listener to call when the user sets the date
+     * @param year        the initially selected year
      * @param monthOfYear the initially selected month of the year (0-11 for
      *                    compatibility with {@link Calendar#MONTH})
-     * @param dayOfMonth the initially selected day of month (1-31, depending
-     *                   on month)
+     * @param dayOfMonth  the initially selected day of month (1-31, depending
+     *                    on month)
      */
     public DatePickerDialog(@NonNull Context context, @StyleRes int themeResId,
                             @Nullable OnDateSetListener listener, int year, int monthOfYear, int dayOfMonth) {
@@ -115,7 +115,9 @@ public class DatePickerDialog extends AlertDialog implements DialogInterface.OnC
         mDateSetListener = listener;
     }
 
-    static @StyleRes int resolveDialogTheme(@NonNull Context context, @StyleRes int themeResId) {
+    static
+    @StyleRes
+    int resolveDialogTheme(@NonNull Context context, @StyleRes int themeResId) {
         if (themeResId == 0) {
             final TypedValue outValue = new TypedValue();
             context.getTheme().resolveAttribute(android.R.attr.datePickerDialogTheme, outValue, true);
@@ -170,9 +172,9 @@ public class DatePickerDialog extends AlertDialog implements DialogInterface.OnC
     /**
      * Sets the current date.
      *
-     * @param year the year
-     * @param month the month (0-11 for compatibility with
-     *              {@link Calendar#MONTH})
+     * @param year       the year
+     * @param month      the month (0-11 for compatibility with
+     *                   {@link Calendar#MONTH})
      * @param dayOfMonth the day of month (1-31, depending on month)
      */
     public void updateDate(int year, int month, int dayOfMonth) {
@@ -202,10 +204,10 @@ public class DatePickerDialog extends AlertDialog implements DialogInterface.OnC
      */
     public interface OnDateSetListener {
         /**
-         * @param view the picker associated with the dialog
-         * @param year the selected year
-         * @param month the selected month (0-11 for compatibility with
-         *              {@link Calendar#MONTH})
+         * @param view       the picker associated with the dialog
+         * @param year       the selected year
+         * @param month      the selected month (0-11 for compatibility with
+         *                   {@link Calendar#MONTH})
          * @param dayOfMonth th selected day of the month (1-31, depending on
          *                   month)
          */
