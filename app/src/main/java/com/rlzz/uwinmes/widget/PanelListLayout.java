@@ -50,7 +50,7 @@ public class PanelListLayout extends FrameLayout {
     /*说明：这里只可设置表头高度和行号宽度是因为表头的宽度和行号高度由ContentListView中的Item来决定，由调用者在ListView的Item布局中控制*/
     private int tableHeaderHeight = 30; // 表头高度
     private int lineNumberWidth = 30; // 行号宽度
-    private int tableHeaderBackgroundColor = ContextCompat.getColor(getContext(),R.color.colorPrimary); // 表头背景颜色
+    private int tableHeaderBackgroundColor = ContextCompat.getColor(getContext(), R.color.colorPrimary); // 表头背景颜色
     private int lineNumberBackgroundColor = 0x3a3e55; // 行号背景颜色
     private int lineNumberTextColor; // 行号文本颜色
     private int lineNumberTextSize; // 行号文本大小
@@ -216,7 +216,7 @@ public class PanelListLayout extends FrameLayout {
                 llTableHeader.setBackgroundColor(tableHeaderBackgroundColor);
                 llTableHeader.getLayoutParams().height = tableHeaderHeight;
                 llTableHeader.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE | LinearLayout.SHOW_DIVIDER_BEGINNING);
-                llTableHeader.setDividerDrawable(ContextCompat.getDrawable(getContext(),R.drawable.row_item_divider));
+                llTableHeader.setDividerDrawable(ContextCompat.getDrawable(getContext(), R.drawable.row_item_divider));
                 tvTitle.getLayoutParams().height = llTableHeader.getLayoutParams().height;
                 LinearLayout viewGroup = (LinearLayout) childItem;
                 llTableHeader.removeAllViews();
@@ -278,6 +278,13 @@ public class PanelListLayout extends FrameLayout {
             } else {
                 view = convertView;
             }
+            View childAt = lvContent.getAdapter().getView(position, null, lvContent);
+            if (childAt != null) { // 动态测量ContentListView中Item的高度，并将行号的高度与其保持一致
+                childAt.measure(0, 0);
+                Log("item " + position + " height -> " + childAt.getMeasuredHeight());
+                view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, childAt.getMeasuredHeight()));
+            }
+
             view.setBackgroundColor(lineNumberBackgroundColor);
             ((TextView) view).setText(this.mLineNumbers[position]);
             ((TextView) view).setTextSize(15);

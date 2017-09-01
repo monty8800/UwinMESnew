@@ -74,9 +74,19 @@ public class TestTaskActivity extends BaseActivity {
         for (int i = 0; i < 100; i++) {
             TestTask task = new TestTask();
             task.isEnterEnable = (i % 2 == 0);
-            task.operator = "张三";
+            if(i==3){
+                task.operator = "张三11111sdfasdfasdf11111111111";
+            }else{
+                task.operator = "张三";
+            }
+
             task.arrivalDate = "2017-09-01";
-            task.arrivalOrderNumber = "ARR20160802003";
+            if(i==98){
+                task.arrivalOrderNumber = "ARR20160802ARR20160802003ARR20160802003ARR20160802003ARR20160802003ARR20160802003003";
+            }else{
+                task.arrivalOrderNumber = "ARR20160802003";
+            }
+
             task.lineNumber = i + 1;
             task.materialNumber = "INV001";
             task.materialName = "高品质电容";
