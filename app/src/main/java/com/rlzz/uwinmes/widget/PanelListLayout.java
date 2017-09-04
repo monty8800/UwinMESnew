@@ -1,10 +1,10 @@
 package com.rlzz.uwinmes.widget;
 
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -40,7 +40,7 @@ public class PanelListLayout extends FrameLayout {
     @BindView(R.id.lv_content)
     ListView lvContent;
     @BindView(R.id.swipeRefreshLayout)
-    SwipeRefreshLayout swipeRefreshLayout;
+    RefreshLayout swipeRefreshLayout;
     @BindView(R.id.ll_lineNumber)
     LinearLayout llLineNumber;
 
@@ -76,13 +76,22 @@ public class PanelListLayout extends FrameLayout {
     }
 
     private void initView() {
-        initListScrollListener();
-    }
+        /* 去掉ListView滑动到头部或底部时的动画 */
+        lvLineNumber.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        lvContent.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
-    private void initListScrollListener() {
         OnScrollListener onScrollListener = new OnScrollListener();
         lvLineNumber.setOnScrollListener(onScrollListener);
         lvContent.setOnScrollListener(onScrollListener);
+        /**
+         * 解决SwipeRefreshLayout中多层嵌套ListView下拉事件冲突问题
+         */
+        swipeRefreshLayout.setOnChildScrollUpCallback(new SwipeRefreshLayout.OnChildScrollUpCallback() {
+            @Override
+            public boolean canChildScrollUp(SwipeRefreshLayout parent, @Nullable View child) {
+                return ViewCompat.canScrollVertically(lvContent, -1);
+            }
+        });
     }
 
     /**
@@ -170,19 +179,21 @@ public class PanelListLayout extends FrameLayout {
         }
 
         this.mAdapter = adapter;
-        this.mAdapter.registerDataSetObserver(new DataSetObserver() {
-            @Override
-            public void onChanged() {
-                Log("DataSetObserver ******** onChanged");
-                applyView();
-            }
-
-            @Override
-            public void onInvalidated() {
-                Log("DataSetObserver ******** onInvalidated");
-                super.onInvalidated();
-            }
-        });
+        /*监听Adapter，当ListView中的内容发生改变时重新渲染(主要作用，第一次设置Adapter之后，没有数据的情况下，从网络获取数据之后刷新Adapter之后需要重新绘制表头)*/
+//        this.mAdapter.registerDataSetObserver(new DataSetObserver() {
+//            @Override
+//            public void onChanged() {
+//                Log("DataSetObserver ******** onChanged");
+//                applyView();
+//            }
+//
+//            @Override
+//            public void onInvalidated() {
+//                Log("DataSetObserver ******** onInvalidated");
+//                super.onInvalidated();
+//            }
+//        });
+        this.lvContent.setAdapter(mAdapter);
 
 
         applyView();
@@ -196,7 +207,6 @@ public class PanelListLayout extends FrameLayout {
         ViewGroup.LayoutParams layoutParams = llLineNumber.getLayoutParams();
         layoutParams.width = lineNumberWidth;
 
-        this.lvContent.setAdapter(mAdapter);
         this.lvContent.post(new Runnable() {
             @Override
             public void run() {
@@ -309,14 +319,19 @@ public class PanelListLayout extends FrameLayout {
     }
 
     public class OnScrollListener implements AbsListView.OnScrollListener {
+        private int scrollState;
 
         @Override
         public void onScrollStateChanged(AbsListView view, int scrollState) {
             Log("onScrollStateChanged - scrollState -> " + scrollState);
+            this.scrollState = scrollState;
         }
 
         @Override
         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+            if (scrollState == SCROLL_STATE_IDLE) {
+                return;
+            }
             View subView = view.getChildAt(0);
             if (subView != null) {
                 int top = subView.getTop();

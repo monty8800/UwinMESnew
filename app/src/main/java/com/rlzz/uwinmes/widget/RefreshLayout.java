@@ -65,25 +65,32 @@ public class RefreshLayout extends SwipeRefreshLayout implements AbsListView.OnS
             throw new RuntimeException("You must have to add a ListView");
         }
         /*监听ListView的滑动事件，避免RefreshLayout与ListView滑动时间冲突*/
-        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                boolean enable = false;
-                if (view != null && view.getChildCount() > 0) {
-                    boolean firstItemVisible = view.getFirstVisiblePosition() == 0;
-                    boolean topOfFirstItemVisible = view.getChildAt(0).getTop() == 0;
-                    enable = firstItemVisible && topOfFirstItemVisible;
-                }
-                setEnabled(enable);
-            }
-        });
+//        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(AbsListView view, int scrollState) {
+//
+//            }
+//
+//            @Override
+//            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//                boolean enable = false;
+//                LogUtil.d("**************************________________________");
+//                if (view != null && view.getChildCount() > 0) {
+//                    boolean firstItemVisible = view.getFirstVisiblePosition() == 0;
+//                    boolean topOfFirstItemVisible = view.getChildAt(0).getTop() == 0;
+//                    LogUtil.d("refreshLayout - firstItemVisible -> %1$s ----- topOfFirstItemVisible -> %2$s",firstItemVisible,topOfFirstItemVisible);
+//                    enable = firstItemVisible && topOfFirstItemVisible;
+//                }
+//                setEnabled(enable);
+//            }
+//        });
         mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         mListViewFooter = inflate(getContext(), R.layout.loadmore_footer, null);
+    }
+
+    @Override
+    public boolean canChildScrollUp() {
+        return super.canChildScrollUp();
     }
 
     @Override

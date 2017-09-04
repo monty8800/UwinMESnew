@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.rlzz.uwinmes.R;
 import com.rlzz.uwinmes.entity.TestTask;
+import com.rlzz.uwinmes.utils.ToastUtil;
 
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class TestTaskAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (null == convertView) {
             convertView = inflater.inflate(R.layout.test_task_item, parent, false);
@@ -62,11 +63,17 @@ public class TestTaskAdapter extends BaseAdapter {
         int textColor = testTask.isEnterEnable ? R.color.blue : R.color.gray;
         viewHolder.tvEnterEnable.setTextColor(ContextCompat.getColor(context, textColor));
         viewHolder.tvEnterEnable.setText("录入");
+        viewHolder.tvEnterEnable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtil.show("position -> " + position);
+            }
+        });
 
         viewHolder.tvOperator.setText(testTask.operator);
         viewHolder.tvArrivalDate.setText(testTask.arrivalDate);
         viewHolder.tvArrivalOrderNumber.setText(testTask.arrivalOrderNumber);
-        viewHolder.tvLineNumber.setText(testTask.lineNumber+"");
+        viewHolder.tvLineNumber.setText(testTask.lineNumber + "");
         viewHolder.tvMaterialNumber.setText(testTask.materialNumber);
         viewHolder.tvMaterialName.setText(testTask.materialName);
         viewHolder.tvSpecification.setText(testTask.specification);
