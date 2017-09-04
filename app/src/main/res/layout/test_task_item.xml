@@ -95,6 +95,7 @@
         android:id="@+id/tv_inspectionNumber"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/blue"
         android:gravity="center"
         android:text="JY20160802001" />
 

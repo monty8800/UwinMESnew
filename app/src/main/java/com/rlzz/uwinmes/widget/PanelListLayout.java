@@ -179,6 +179,7 @@ public class PanelListLayout extends FrameLayout {
         }
 
         this.mAdapter = adapter;
+        this.lvContent.setAdapter(mAdapter);
         /*监听Adapter，当ListView中的内容发生改变时重新渲染(主要作用，第一次设置Adapter之后，没有数据的情况下，从网络获取数据之后刷新Adapter之后需要重新绘制表头)*/
 //        this.mAdapter.registerDataSetObserver(new DataSetObserver() {
 //            @Override
@@ -193,7 +194,7 @@ public class PanelListLayout extends FrameLayout {
 //                super.onInvalidated();
 //            }
 //        });
-        this.lvContent.setAdapter(mAdapter);
+
 
 
         applyView();

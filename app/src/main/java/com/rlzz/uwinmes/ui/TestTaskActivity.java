@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -17,6 +18,7 @@ import com.rlzz.uwinmes.adapter.TestTaskAdapter;
 import com.rlzz.uwinmes.common.base.BaseActivity;
 import com.rlzz.uwinmes.entity.TestTask;
 import com.rlzz.uwinmes.utils.DatePickerUtil;
+import com.rlzz.uwinmes.widget.MaterialProgressDrawable;
 import com.rlzz.uwinmes.widget.PanelListLayout;
 
 import java.util.ArrayList;
@@ -47,6 +49,8 @@ public class TestTaskActivity extends BaseActivity {
     Button btnSearch;
     @BindView(R.id.panelList)
     PanelListLayout panelList;
+    @BindView(R.id.btn_refresh)
+    FloatingActionButton btnRefresh;
     private ArrayAdapter<String> mStatusAdapter;
 
     public static void GoToActivity(Context context) {
@@ -74,16 +78,16 @@ public class TestTaskActivity extends BaseActivity {
         for (int i = 0; i < 100; i++) {
             TestTask task = new TestTask();
             task.isEnterEnable = (i % 2 == 0);
-            if(i==3){
+            if (i == 3) {
                 task.operator = "张三11111sdfasdfasdf11111111111";
-            }else{
+            } else {
                 task.operator = "张三";
             }
 
             task.arrivalDate = "2017-09-01";
-            if(i==98){
+            if (i == 98) {
                 task.arrivalOrderNumber = "ARR20160802ARR20160ARR20160802ARR20160802003ARR20160802003ARR20160802003ARR20160802003ARR20160802003003ARR20160802ARR20160802003ARR20160802003ARR20160802003ARR20160802003ARR20160802003003802003ARR20160802003ARR20160802003ARR20160802003ARR20160802003003";
-            }else{
+            } else {
                 task.arrivalOrderNumber = "ARR20160802003";
             }
 
@@ -109,6 +113,18 @@ public class TestTaskActivity extends BaseActivity {
     @Override
     public void initView() {
         getSupportActionBar().hide(); // 隐藏ActionBar
+        MaterialProgressDrawable progress = new MaterialProgressDrawable(this,btnRefresh);
+//        progress.setBackgroundColor(0xFFFAFAFA);
+        btnRefresh.setImageDrawable(progress);
+//        progress.updateSizes(MaterialProgressDrawable.LARGE);
+        progress.setAlpha(255);
+        progress.setStartEndTrim(0f, 0.8f);
+        progress.setArrowScale(1f); //0~1之间
+        progress.setProgressRotation(1);
+        progress.showArrow(true);
+        progress.start();
+
+
     }
 
     @Override
@@ -139,5 +155,9 @@ public class TestTaskActivity extends BaseActivity {
 
     @OnClick(R.id.btn_search)
     public void onBtnSearchClicked() {
+    }
+
+    @OnClick(R.id.btn_refresh)
+    public void onViewClicked() {
     }
 }

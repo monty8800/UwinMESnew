@@ -1,6 +1,7 @@
 package com.rlzz.uwinmes.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.rlzz.uwinmes.R;
 import com.rlzz.uwinmes.entity.TestTask;
+import com.rlzz.uwinmes.ui.InspectionActivity;
 import com.rlzz.uwinmes.utils.ToastUtil;
 
 import java.util.List;
@@ -21,7 +23,7 @@ import butterknife.ButterKnife;
  * Created by monty on 2017/9/1.
  */
 
-public class TestTaskAdapter extends BaseAdapter {
+public class TestTaskAdapter extends BaseAdapter implements View.OnClickListener {
     private Context context;
     private List<TestTask> testTasks;
     private LayoutInflater inflater;
@@ -60,16 +62,11 @@ public class TestTaskAdapter extends BaseAdapter {
 
         TestTask testTask = testTasks.get(position);
 
-        int textColor = testTask.isEnterEnable ? R.color.blue : R.color.gray;
-        viewHolder.tvEnterEnable.setTextColor(ContextCompat.getColor(context, textColor));
-        viewHolder.tvEnterEnable.setText("录入");
-        viewHolder.tvEnterEnable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtil.show("position -> " + position);
-            }
-        });
+        setStyle(viewHolder, testTask);
+        setOnClickListener(viewHolder,testTask);
 
+        /*-----------setData start-----------*/
+        viewHolder.tvEnterEnable.setText("录入");
         viewHolder.tvOperator.setText(testTask.operator);
         viewHolder.tvArrivalDate.setText(testTask.arrivalDate);
         viewHolder.tvArrivalOrderNumber.setText(testTask.arrivalOrderNumber);
@@ -83,13 +80,39 @@ public class TestTaskAdapter extends BaseAdapter {
         viewHolder.tvInspectionTemplate.setText(testTask.inspectionTemplate);
         viewHolder.tvInspectionNumber.setText(testTask.inspectionNumber);
         viewHolder.tvInspector.setText(testTask.inspector);
-
+        /*-----------setData ent-----------*/
         return convertView;
+    }
+
+    private void setOnClickListener(ViewHolder viewHolder, TestTask testTask) {
+        viewHolder.tvEnterEnable.setTag(testTask);
+        viewHolder.tvEnterEnable.setOnClickListener(this);
+        viewHolder.tvInspectionNumber.setOnClickListener(this);
+
+    }
+
+    private void setStyle(ViewHolder viewHolder, TestTask testTask) {
+        int textColor = testTask.isEnterEnable ? R.color.blue : R.color.gray;
+        viewHolder.tvEnterEnable.setTextColor(ContextCompat.getColor(context, textColor));
+        viewHolder.tvInspectionNumber.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置中划线并加清晰
     }
 
     public void notifyData(List<TestTask> testTasks) {
         this.testTasks = testTasks;
         this.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View v) {
+        TestTask task = (TestTask) v.getTag();
+        switch (v.getId()){
+            case R.id.tv_enterEnable:
+                ToastUtil.show("position -> " + task.lineNumber);
+                break;
+            case R.id.tv_inspectionNumber:
+                InspectionActivity.GoToActivity(context,task);
+                break;
+        }
     }
 
     static class ViewHolder {
