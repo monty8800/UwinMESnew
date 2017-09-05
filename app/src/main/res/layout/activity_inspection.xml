@@ -1,9 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.rlzz.uwinmes.ui.InspectionActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkblue"
+        android:orientation="vertical"
+        android:padding="@dimen/dim10dp">
+
+        <TextView
+            android:id="@+id/tv_inspectionTemplate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电缆芯线完工检验方案-来料待检"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_large_16"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/dim5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_materialName"
+                style="@style/ConditionEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:text="CU1380 高品质电容 220UF" />
+
+            <EditText
+                android:id="@+id/et_supplierName"
+                style="@style/ConditionEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dim10dp"
+                android:enabled="false"
+                android:text="长江实业有限公司" />
+
+            <EditText
+                android:id="@+id/et_arrivalOrderNumber"
+                style="@style/ConditionEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dim10dp"
+                android:enabled="false"
+                android:text="ARR20160802003"
+                android:textColor="@color/blue" />
+
+            <EditText
+                android:id="@+id/et_count"
+                style="@style/ConditionEditText"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dim10dp"
+                android:enabled="false"
+                android:text="1200" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/fl_menu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:background="@color/brownness" />
+
+        <FrameLayout
+            android:id="@+id/fl_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+    </LinearLayout>
+</LinearLayout>

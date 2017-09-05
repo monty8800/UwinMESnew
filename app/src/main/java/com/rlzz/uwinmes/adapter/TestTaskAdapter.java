@@ -87,6 +87,7 @@ public class TestTaskAdapter extends BaseAdapter implements View.OnClickListener
     private void setOnClickListener(ViewHolder viewHolder, TestTask testTask) {
         viewHolder.tvEnterEnable.setTag(testTask);
         viewHolder.tvEnterEnable.setOnClickListener(this);
+        viewHolder.tvInspectionNumber.setTag(testTask);
         viewHolder.tvInspectionNumber.setOnClickListener(this);
 
     }

@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3aaed7"
+    tools:context="com.rlzz.uwinmes.ui.fragment.InspectionItemFragment"
+    tools:layout_width="300dp">
+
+
+    <LinearLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim50dp"
+            android:background="#2d9cc2"
+            android:gravity="center"
+            android:text="Part.1指标录入"
+            android:textColor="@color/white" />
+
+        <ExpandableListView
+            android:id="@+id/elv_inspectionItems"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:groupIndicator="@null" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim50dp"
+            android:background="#d94847"
+            android:text="保存"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <com.rlzz.uwinmes.widget.LoadingView
+        android:id="@+id/loadingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+</FrameLayout>

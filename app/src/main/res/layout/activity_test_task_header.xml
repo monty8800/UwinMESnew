@@ -21,7 +21,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginTop="@dimen/dim5dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -30,8 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/search_round_bg"
-            android:gravity="center_vertical"
             android:focusable="true"
+            android:gravity="center_vertical"
             android:paddingLeft="@dimen/dim5dp"
             android:paddingRight="@dimen/dim5dp">
 
@@ -93,8 +93,8 @@
             android:layout_width="90dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dim10dp"
-            android:imeOptions="flagNoExtractUi|actionDone"
-            android:hint="检验员" />
+            android:hint="检验员"
+            android:imeOptions="flagNoExtractUi|actionDone" />
 
         <Spinner
             android:id="@+id/sp_testStatus"
@@ -107,7 +107,7 @@
         <Button
             android:id="@+id/btn_search"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dim10dp"
             android:background="@drawable/orange_round_bg"
             android:text="查询"

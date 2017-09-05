@@ -56,6 +56,8 @@ public class PanelListLayout extends FrameLayout {
     private int lineNumberTextSize; // 行号文本大小
 
     private String[] tableHeaderText;
+    private int oldGroupPosition = -1;
+    private int oldChildPosition = -1;
 
 
     public PanelListLayout(Context context) {
@@ -194,7 +196,6 @@ public class PanelListLayout extends FrameLayout {
 //                super.onInvalidated();
 //            }
 //        });
-
 
 
         applyView();
