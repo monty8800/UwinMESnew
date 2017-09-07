@@ -39,7 +39,7 @@
 
     </LinearLayout>
 
-    <com.rlzz.uwinmes.widget.LoadingView
+    <com.rlzz.library.widget.LoadingView
         android:id="@+id/loadingView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

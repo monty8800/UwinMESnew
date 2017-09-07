@@ -1,5 +1,6 @@
 package com.rlzz.uwinmes.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -48,5 +49,10 @@ public class InspectionContentFragment extends Fragment {
         /*loadingview.setSize(50);
         loadingview.setColor(ContextCompat.getColor(getContext(), R.color.main_text_black));
         loadingview.start();*/
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

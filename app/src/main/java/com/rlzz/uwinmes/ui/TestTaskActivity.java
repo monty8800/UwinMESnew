@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -62,20 +63,31 @@ public class TestTaskActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         //检验状态适配器
         mStatusAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, getResources().getStringArray(R.array.test_status));
-        TestTaskAdapter testTaskAdapter = new TestTaskAdapter(this, new ArrayList<TestTask>());
+        final TestTaskAdapter testTaskAdapter = new TestTaskAdapter(this, new ArrayList<TestTask>());
 
 
         panelList.setLineNumberBackgroundColor(Color.parseColor("#3a3e88"))
                 .setLineNumberWidth(50)
-                .setTableHeaderText("操作", "处理人", "到货日期", "到货单号", "行号", "物料编码", "物料名称", "规格型号", "质检方式", "质检数量", "AQL", "检验模板", "检验单号", "检验员")
+                .setTableHeaderTexts("操作", "处理人", "到货日期", "到货单号", "行号", "物料编码", "物料名称", "规格型号", "质检方式", "质检数量", "AQL", "检验模板", "检验单号", "检验员")
                 .setAdapter(testTaskAdapter);
-
-        testTaskAdapter.notifyData(generateTestTaskList());
+        panelList.getSwipeRefreshLayout().setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                panelList.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        testTaskAdapter.addDatas(generateTestTaskList(100));
+                        panelList.getSwipeRefreshLayout().setRefreshing(false);
+                    }
+                }, 2000);
+            }
+        });
+        testTaskAdapter.notifyData(generateTestTaskList(0));
     }
 
-    private List<TestTask> generateTestTaskList() {
+    private List<TestTask> generateTestTaskList(int startValue) {
         List<TestTask> testTasks = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = startValue; i < startValue + 100; i++) {
             TestTask task = new TestTask();
             task.isEnterEnable = (i % 2 == 0);
             if (i == 3) {
@@ -85,7 +97,7 @@ public class TestTaskActivity extends BaseActivity {
             }
 
             task.arrivalDate = "2017-09-01";
-            if (i == 98) {
+            if (i == 98 || i == 105) {
                 task.arrivalOrderNumber = "ARR20160802ARR20160ARR20160802ARR20160802003ARR20160802003ARR20160802003ARR20160802003ARR20160802003003ARR20160802ARR20160802003ARR20160802003ARR20160802003ARR20160802003ARR20160802003003802003ARR20160802003ARR20160802003ARR20160802003ARR20160802003003";
             } else {
                 task.arrivalOrderNumber = "ARR20160802003";
@@ -113,7 +125,7 @@ public class TestTaskActivity extends BaseActivity {
     @Override
     public void initView() {
         getSupportActionBar().hide(); // 隐藏ActionBar
-        MaterialProgressDrawable progress = new MaterialProgressDrawable(this,btnRefresh);
+        MaterialProgressDrawable progress = new MaterialProgressDrawable(this, btnRefresh);
 //        progress.setBackgroundColor(0xFFFAFAFA);
         btnRefresh.setImageDrawable(progress);
 //        progress.updateSizes(MaterialProgressDrawable.LARGE);

@@ -12,11 +12,11 @@ import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.rlzz.library.widget.LoadingView;
 import com.rlzz.uwinmes.R;
 import com.rlzz.uwinmes.adapter.InspectionItemAdapter;
 import com.rlzz.uwinmes.entity.InspectionItem;
 import com.rlzz.uwinmes.utils.ToastUtil;
-import com.rlzz.uwinmes.widget.LoadingView;
 
 import java.util.ArrayList;
 import java.util.List;

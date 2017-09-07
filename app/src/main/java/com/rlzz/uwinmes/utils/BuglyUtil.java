@@ -16,7 +16,7 @@ import java.util.Map;
  */
 
 public class BuglyUtil {
-    private static final String APP_CONTEXT_TAG = "appContext";
+    private static final String APP_CONTEXT_TAG = "rlzz";
     private static final String BUGLY_APP_ID = "21cc9c4212";
     /**
      * 腾讯Bugly，处理异常上报初始化

@@ -87,6 +87,7 @@ dependencies {
     // Chrome调试网络和数据库
     //加载图片
     //高斯模糊
+    compile project(":library")
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'jp.wasabeef:glide-transformations:2.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'

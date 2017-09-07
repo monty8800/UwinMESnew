@@ -1,6 +1,7 @@
 package com.rlzz.uwinmes.widget;
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -21,6 +22,9 @@ import android.widget.TextView;
 
 import com.rlzz.uwinmes.R;
 import com.rlzz.uwinmes.utils.DisplayUtil;
+
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,19 +49,21 @@ public class PanelListLayout extends FrameLayout {
     LinearLayout llLineNumber;
 
     private Context mContext;
-    private BaseAdapter mAdapter;
+//    private BaseAdapter mAdapter;
 
     /*说明：这里只可设置表头高度和行号宽度是因为表头的宽度和行号高度由ContentListView中的Item来决定，由调用者在ListView的Item布局中控制*/
     private int tableHeaderHeight = 30; // 表头高度
     private int lineNumberWidth = 30; // 行号宽度
-    private int tableHeaderBackgroundColor = ContextCompat.getColor(getContext(), R.color.colorPrimary); // 表头背景颜色
-    private int lineNumberBackgroundColor = 0x3a3e55; // 行号背景颜色
-    private int lineNumberTextColor; // 行号文本颜色
-    private int lineNumberTextSize; // 行号文本大小
 
-    private String[] tableHeaderText;
-    private int oldGroupPosition = -1;
-    private int oldChildPosition = -1;
+    private int tableHeaderBackgroundColor = 0xff00bcd4; // 表头背景颜色
+    private int tableHeaderTextColor = 0xffffffff; // 表头文本颜色
+    private int tableHeaderTextSize = 14; // 表头文本大小
+
+    private int lineNumberBackgroundColor = 0xff00bcd4; // 行号背景颜色
+    private int lineNumberTextColor = 0xffffffff; // 行号文本颜色
+    private int lineNumberTextSize = 14; // 行号文本大小
+
+    private List<String> tableHeaderTexts;
 
 
     public PanelListLayout(Context context) {
@@ -96,6 +102,10 @@ public class PanelListLayout extends FrameLayout {
         });
     }
 
+    public RefreshLayout getSwipeRefreshLayout() {
+        return swipeRefreshLayout;
+    }
+
     /**
      * 设置表头高度(单位：dp)
      *
@@ -117,12 +127,12 @@ public class PanelListLayout extends FrameLayout {
     }
 
     /**
-     * 设置表头高度(单位：dp)
+     * 设置表头背景颜色
      *
      * @param color
      */
     public PanelListLayout setTableHeaderBackgroundColor(int color) {
-        this.tableHeaderBackgroundColor = DisplayUtil.dp2px(color);
+        this.tableHeaderBackgroundColor = color;
         return this;
     }
 
@@ -165,8 +175,8 @@ public class PanelListLayout extends FrameLayout {
      * @param text
      * @return
      */
-    public PanelListLayout setTableHeaderText(String... text) {
-        this.tableHeaderText = text;
+    public PanelListLayout setTableHeaderTexts(String... text) {
+        this.tableHeaderTexts = Arrays.asList(text);
         return this;
     }
 
@@ -180,28 +190,33 @@ public class PanelListLayout extends FrameLayout {
             throw new IllegalArgumentException("adapter is not allow to be null");
         }
 
-        this.mAdapter = adapter;
-        this.lvContent.setAdapter(mAdapter);
-        /*监听Adapter，当ListView中的内容发生改变时重新渲染(主要作用，第一次设置Adapter之后，没有数据的情况下，从网络获取数据之后刷新Adapter之后需要重新绘制表头)*/
-//        this.mAdapter.registerDataSetObserver(new DataSetObserver() {
-//            @Override
-//            public void onChanged() {
-//                Log("DataSetObserver ******** onChanged");
-//                applyView();
-//            }
-//
-//            @Override
-//            public void onInvalidated() {
-//                Log("DataSetObserver ******** onInvalidated");
-//                super.onInvalidated();
-//            }
-//        });
+//        this.mAdapter = adapter;
+        this.lvContent.setAdapter(adapter);
+        /****************************************
+         * 监听Adapter，当ListView中的内容发生改变时重新渲染(主要作用，第一次设置Adapter之后，没有数据的情况下，
+         * 从网络获取数据之后刷新Adapter之后需要重新绘制表头)
+         ****************************************/
+        adapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                Log("DataSetObserver ******** onChanged");
+                applyView();
+            }
 
+            @Override
+            public void onInvalidated() {
+                Log("DataSetObserver ******** onInvalidated");
+                super.onInvalidated();
+                applyView();
+            }
+        });
 
         applyView();
     }
 
     /**
+     * ************************************核心代码**********************************
+     * <p>
      * 填充表格
      */
     private void applyView() {
@@ -215,7 +230,7 @@ public class PanelListLayout extends FrameLayout {
                 Log("post******************************");
                 View childItem = lvContent.getChildAt(lvContent.getFirstVisiblePosition());
                 Log("post**********填充行号*************");
-                applyLineNumberListView(childItem.getHeight());
+                applyLineNumberListView();
                 Log("post**********填充表头*************");
                 applyTableHeader(childItem);
             }
@@ -230,13 +245,17 @@ public class PanelListLayout extends FrameLayout {
                 llTableHeader.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE | LinearLayout.SHOW_DIVIDER_BEGINNING);
                 llTableHeader.setDividerDrawable(ContextCompat.getDrawable(getContext(), R.drawable.row_item_divider));
                 tvTitle.getLayoutParams().height = llTableHeader.getLayoutParams().height;
-                LinearLayout viewGroup = (LinearLayout) childItem;
+                LinearLayout contentItem = (LinearLayout) childItem;
                 llTableHeader.removeAllViews();
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    View v = viewGroup.getChildAt(i);
+
+                for (int i = 0; i < contentItem.getChildCount(); i++) {
+                    View v = contentItem.getChildAt(i);
                     TextView textView = new TextView(mContext);
+                    //根据ContentListView的Item中列的宽度来动态设置表头宽度
                     textView.setLayoutParams(new LinearLayout.LayoutParams(v.getWidth(), ViewGroup.LayoutParams.MATCH_PARENT));
-                    textView.setText(tableHeaderText[i]);
+                    textView.setText(tableHeaderTexts.get(i));
+                    textView.setTextColor(tableHeaderTextColor);
+                    textView.setTextSize(tableHeaderTextSize);
                     textView.setGravity(Gravity.CENTER);
                     llTableHeader.addView(textView);
                 }
@@ -244,10 +263,9 @@ public class PanelListLayout extends FrameLayout {
 
             /**
              * 填充行号
-             * @param lineNumberHeight
              */
-            private void applyLineNumberListView(int lineNumberHeight) {
-                lvLineNumber.setAdapter(new LineNumberAdapter(mAdapter.getCount(), lineNumberHeight));
+            private void applyLineNumberListView() {
+                lvLineNumber.setAdapter(new LineNumberAdapter(lvContent.getCount()));
             }
 
         });
@@ -255,12 +273,10 @@ public class PanelListLayout extends FrameLayout {
 
     private class LineNumberAdapter extends BaseAdapter {
         private int mLineNumberCount;
-        private int mLineNumberHeight;
         private String[] mLineNumbers;
 
-        public LineNumberAdapter(int lineNumberCount, int lineNumberHeight) {
+        public LineNumberAdapter(int lineNumberCount) {
             this.mLineNumberCount = lineNumberCount;
-            this.mLineNumberHeight = lineNumberHeight;
             this.mLineNumbers = generateLineNumbers();
         }
 
@@ -286,22 +302,21 @@ public class PanelListLayout extends FrameLayout {
             View view;
             if (convertView == null) {
                 view = LayoutInflater.from(mContext).inflate(android.R.layout.simple_list_item_1, parent, false);
-                view.getLayoutParams().height = this.mLineNumberHeight;
             } else {
                 view = convertView;
             }
-            View childAt = lvContent.getAdapter().getView(position, null, lvContent);
-            if (childAt != null) { // 动态测量ContentListView中Item的高度，并将行号的高度与其保持一致
-                childAt.measure(0, 0);
-                Log("item " + position + " height -> " + childAt.getMeasuredHeight());
-                view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, childAt.getMeasuredHeight()));
+            View contentItemView = lvContent.getAdapter().getView(position, null, lvContent);
+            if (contentItemView != null) { // 动态测量ContentListView中Item的高度，并将行号的高度与其保持一致
+                contentItemView.measure(0, 0);
+                view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, contentItemView.getMeasuredHeight()));
             }
-
-            view.setBackgroundColor(lineNumberBackgroundColor);
-            ((TextView) view).setText(this.mLineNumbers[position]);
-            ((TextView) view).setTextSize(15);
-            view.setPadding(0, 0, 0, 0);
-            ((TextView) view).setGravity(Gravity.CENTER);
+            TextView textView = (TextView) view;
+            textView.setBackgroundColor(lineNumberBackgroundColor);
+            textView.setText(this.mLineNumbers[position]);
+            textView.setTextColor(lineNumberTextColor);
+            textView.setTextSize(lineNumberTextSize);
+            textView.setPadding(0, 0, 0, 0);
+            textView.setGravity(Gravity.CENTER);
             return view;
         }
 
@@ -331,13 +346,16 @@ public class PanelListLayout extends FrameLayout {
 
         @Override
         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+            /*********************************************
+             * 解决无限同步LineNumberListView和ContentListView滚动位置的问题，SCROLL_STATE_IDLE是ListView滚动结束时的标记，
+             * 此处判断如果滚动结束了就不再进行同步，避免因为一直处于滚动状态而导致ListView的getView会一直调用的问题。
+             *********************************************/
             if (scrollState == SCROLL_STATE_IDLE) {
                 return;
             }
             View subView = view.getChildAt(0);
             if (subView != null) {
                 int top = subView.getTop();
-                Log("onScrollStateChanged - onScroll - subView.top -> " + top);
                 if (view == lvContent) {
                     lvLineNumber.setSelectionFromTop(firstVisibleItem, top);
                 } else {

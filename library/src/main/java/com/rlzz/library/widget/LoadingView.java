@@ -1,4 +1,4 @@
-package com.rlzz.uwinmes.widget;
+package com.rlzz.library.widget;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -8,8 +8,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-
-import com.rlzz.uwinmes.utils.DisplayUtil;
 
 /**
  * 用于显示 Loading 的 {@link View}，支持颜色和大小的设置。
@@ -39,7 +37,7 @@ public class LoadingView extends View {
         super(context, attrs, defStyleAttr);
 //        TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.QMUILoadingView, defStyleAttr, 0);
 //        mSize = array.getDimensionPixelSize(R.styleable.QMUILoadingView_qmui_loading_view_size, DisplayUtil.dp2px(32));
-        mSize = DisplayUtil.dp2px(32);
+        mSize = dp2px(32);
 //        mPaintColor = array.getInt(R.styleable.QMUILoadingView_android_color, Color.WHITE);
         mPaintColor = Color.WHITE;
 //        array.recycle();
@@ -67,7 +65,7 @@ public class LoadingView extends View {
     }
 
     public void setSize(int size) {
-        mSize = size;
+        mSize = dp2px(size);
         requestLayout();
     }
 
@@ -151,6 +149,11 @@ public class LoadingView extends View {
         } else {
             stop();
         }
+    }
+
+    private int dp2px(float dpValue) {
+        float density = this.getContext().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * density + 0.5f);
     }
 
 }

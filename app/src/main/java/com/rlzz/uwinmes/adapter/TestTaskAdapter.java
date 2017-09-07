@@ -51,7 +51,7 @@ public class TestTaskAdapter extends BaseAdapter implements View.OnClickListener
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
         if (null == convertView) {
             convertView = inflater.inflate(R.layout.test_task_item, parent, false);
             viewHolder = new ViewHolder(convertView);
@@ -63,7 +63,7 @@ public class TestTaskAdapter extends BaseAdapter implements View.OnClickListener
         TestTask testTask = testTasks.get(position);
 
         setStyle(viewHolder, testTask);
-        setOnClickListener(viewHolder,testTask);
+        setOnClickListener(viewHolder, testTask);
 
         /*-----------setData start-----------*/
         viewHolder.tvEnterEnable.setText("录入");
@@ -103,15 +103,20 @@ public class TestTaskAdapter extends BaseAdapter implements View.OnClickListener
         this.notifyDataSetChanged();
     }
 
+    public void addDatas(List<TestTask> testTasks) {
+        this.testTasks.addAll(testTasks);
+        this.notifyDataSetInvalidated();
+    }
+
     @Override
     public void onClick(View v) {
         TestTask task = (TestTask) v.getTag();
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_enterEnable:
                 ToastUtil.show("position -> " + task.lineNumber);
                 break;
             case R.id.tv_inspectionNumber:
-                InspectionActivity.GoToActivity(context,task);
+                InspectionActivity.GoToActivity(context, task);
                 break;
         }
     }

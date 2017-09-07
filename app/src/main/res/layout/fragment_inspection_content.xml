@@ -16,12 +16,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <!--检验描述-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/ic_icon_details" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@+id/imageView1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/imageView1"
+                    android:layout_toRightOf="@+id/imageView1"
+                    android:text="检验描述"
+                    android:textColor="@color/text_app_theme"
+                    android:textSize="@dimen/text_lable_size_n" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imageView1"
+                    android:text="" />
+
+            </RelativeLayout>
+
             <!--标准要求-->
             <RelativeLayout
                 android:id="@+id/rlayout_norm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -135,8 +173,6 @@
                     android:text="文字要求：检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印检验电压及丝印"
                     android:textColor="@color/text_gray"
                     android:textSize="@dimen/text_theme_size" />
-
-
             </RelativeLayout>
 
             <!--实际校验-->
@@ -145,7 +181,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rlayout_norm"
-                >
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -200,6 +236,7 @@
                     android:paddingLeft="@dimen/padding_edit"
                     android:paddingRight="@dimen/padding_edit"
                     android:selectAllOnFocus="true"
+                    android:text="阿萨德发撒打发斯蒂芬"
                     android:textColor="@color/text_app_theme"
                     android:textSize="@dimen/text_lable_size_n" />
 
@@ -297,7 +334,7 @@
                     android:paddingRight="@dimen/padding_edit"
                     android:selectAllOnFocus="true"
                     android:textColor="@color/text_app_theme"
-                    android:textSize="@dimen/text_lable_size_n"/>
+                    android:textSize="@dimen/text_lable_size_n" />
 
                 <TextView
                     android:id="@+id/textView14"
@@ -376,8 +413,8 @@
                     <Spinner
                         android:id="@+id/sp_primary_analysis"
                         android:layout_width="wrap_content"
-                        android:minWidth="210dp"
-                        android:layout_height="40dp" />
+                        android:layout_height="40dp"
+                        android:minWidth="210dp" />
                 </LinearLayout>
 
                 <TextView
@@ -424,7 +461,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rlayout_reality"
                 android:layout_marginBottom="20dp"
-                >
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -553,7 +590,7 @@
                 android:id="@+id/rlayout_integer_unhealthy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
+                android:visibility="gone">
 
 
                 <ImageView
@@ -816,6 +853,15 @@
 
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加图片"/>
+            </RelativeLayout>
         </LinearLayout>
 
     </ScrollView>
@@ -834,7 +880,7 @@
         <Button
             android:id="@+id/positive_button"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="48dp"
             android:layout_gravity="right"
             android:layout_weight="1"
             android:background="@drawable/btn_bg_selector"

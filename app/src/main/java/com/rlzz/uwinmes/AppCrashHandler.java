@@ -33,7 +33,7 @@ public class AppCrashHandler implements Thread.UncaughtExceptionHandler {
     /**
      * 本地保存文件日志
      **/
-    private final String CRASH_REPORTER_EXTENSION = ".crash";
+    private final String CRASH_REPORTER_EXTENSION = ".log";
     /**
      * 日志tag
      **/
@@ -148,7 +148,6 @@ public class AppCrashHandler implements Thread.UncaughtExceptionHandler {
         File saveFile = null;
         PrintWriter printWriter = null;
         try {
-
             lock.tryLock();
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 File sdCardDir = Environment.getExternalStorageDirectory();//获取SDCard目录
@@ -165,6 +164,7 @@ public class AppCrashHandler implements Thread.UncaughtExceptionHandler {
             String result = formatException(ex);
             printWriter.write(result);
             printWriter.flush();
+            Log.e("CrashException", "文件位置 -> "+saveFile.getAbsolutePath());
             Log.e("CrashException", result);
         } catch (Exception e) {
             e.printStackTrace();
@@ -199,7 +199,7 @@ public class AppCrashHandler implements Thread.UncaughtExceptionHandler {
                 int lineNumber = traceElement.getLineNumber();
                 String methodName = traceElement.getMethodName();
                 String className = traceElement.getClassName();
-                sb.append(String.format("%s\t%s[%d].%s \n", className, fileName, lineNumber, methodName));
+                sb.append(String.format("%s\t%s[%dL].%s \n", className, fileName, lineNumber, methodName));
             }
             sb.append(String.format("\n%s", e.getMessage()));
             Writer stringWriter = new StringWriter();
